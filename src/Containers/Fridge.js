@@ -3,6 +3,8 @@ import Ingredient from '../Components/Ingredient'
 import Grid from '@material-ui/core/Grid'
 import { Link } from 'react-router-dom';
 
+const BASEURL = 'https://fridgen-hungry.herokuapp.com/'
+
 class Fridge extends React.Component {
 
   state = {
@@ -48,7 +50,7 @@ class Fridge extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:4000/fridges/'+this.props.fridge.id)
+    fetch( BASEURL + '/fridges/'+this.props.fridge.id)
     .then(response => response.json())
     .then(fridgeObj => {
       this.setState({

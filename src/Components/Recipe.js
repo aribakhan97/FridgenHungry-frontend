@@ -1,6 +1,7 @@
 import React from "react";
 import {Modal, Button} from "react-bootstrap"
 
+const BASEURL = 'https://fridgen-hungry.herokuapp.com/'
 
 class Recipe extends React.Component {
   state = {
@@ -9,7 +10,7 @@ class Recipe extends React.Component {
 }
 
 componentDidMount() {
-  fetch('http://localhost:4000/recipes/' + this.props.recipeID)
+  fetch( BASEURL + '/recipes/' + this.props.recipeID)
   .then(response => response.json())
   .then(data => this.setState({...data, isLoaded: true}))
 }

@@ -10,6 +10,8 @@ import { DndProvider } from "react-dnd"
 import { HTML5Backend } from "react-dnd-html5-backend"
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 
+const BASEURL = 'https://fridgen-hungry.herokuapp.com/'
+
 class App extends React.Component {
   state = {
     isLoggedIn :false,
@@ -44,7 +46,7 @@ class App extends React.Component {
       )
     }
 
-    fetch('http://localhost:4000/fridges', fridgeOptions)
+    fetch(BASEURL + '/fridges', fridgeOptions)
     .then(response => response.json())
     .then(fridgeObj => {
       this.setState({

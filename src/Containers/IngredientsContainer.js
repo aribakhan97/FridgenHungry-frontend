@@ -3,6 +3,8 @@ import Ingredient from '../Components/Ingredient'
 import Category from '../Components/Category'
 import Grid from '@material-ui/core/Grid'
 
+const BASEURL = 'https://fridgen-hungry.herokuapp.com/'
+
 class IngredientsContainer extends React.Component {
 
   state = {
@@ -73,7 +75,7 @@ class IngredientsContainer extends React.Component {
     }
 
   componentDidMount() {
-    fetch('http://localhost:4000/ingredients/')
+    fetch( BASEURL + '/ingredients/')
     .then(r=>r.json())
     .then((ingredientsArray) => {
       this.setState({

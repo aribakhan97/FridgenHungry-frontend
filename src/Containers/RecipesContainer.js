@@ -3,6 +3,8 @@ import Category from '../Components/Category'
 import Grid from '@material-ui/core/Grid'
 import RecipeCard from '../Components/RecipeCard'
 
+const BASEURL = 'https://fridgen-hungry.herokuapp.com/'
+
 class RecipesContainer extends React.Component {
 
 
@@ -81,7 +83,7 @@ class RecipesContainer extends React.Component {
 
   componentDidMount() {
     let fridgeId = this.props.fridge.id
-    let url = 'http://localhost:4000/fridges/' + fridgeId
+    let url =  BASEURL + '/fridges/' + fridgeId
     fetch(url)
     .then(r=>r.json())
     .then(data => {

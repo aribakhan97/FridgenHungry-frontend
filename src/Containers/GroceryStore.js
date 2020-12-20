@@ -5,6 +5,10 @@ import Grid from '@material-ui/core/Grid'
 import Nutrition from '../Components/Nutrition'
 import { useDrag, useDrop } from "react-dnd";
 
+
+
+const BASEURL = 'https://fridgen-hungry.herokuapp.com/'
+
 class GroceryStore extends React.Component {
 
   state = {
@@ -31,7 +35,7 @@ class GroceryStore extends React.Component {
         }
       )
     }
-    fetch('http://localhost:4000/fridge_ingredients', options)
+    fetch( BASEURL + '/fridge_ingredients', options)
     .then(response => response.json())
     .then(data => {
       this.setState({
@@ -82,7 +86,7 @@ class GroceryStore extends React.Component {
       }
     }
 
-    fetch('http://localhost:4000/fridge_ingredients/'+deletedItem.id, options)
+    fetch( BASEURL + '/fridge_ingredients/'+deletedItem.id, options)
     .then(response => response.json())
     .then(data => {console.log("DELETED ITEM", data)
     //   this.setState({
